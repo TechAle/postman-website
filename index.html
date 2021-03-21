@@ -8,11 +8,13 @@
     <title>Postman</title>
     <!-- BootStrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <!-- Styles -->
     <style>
         html, body {
             margin: 0 !important;
             padding: 0 !important;
+            scroll-behavior: smooth;
         }
         #top {
             margin-left: 0 !important;
@@ -38,7 +40,7 @@
             background-image: url("./img/modules-obf.png");
             height: 600px;
             background-repeat: no-repeat;
-            background-size: 100%, 100%;
+            background-size: cover;
             text-align: center;
             color: white;
             animation: rainbow 10s infinite;
@@ -49,11 +51,42 @@
             position: absolute;
             left: 50%;
             transform: translate(-50%, -50%);
-            top: 300px;
+            top: 400px;
             font-size: 80px;
         }
         #subText {
             font-size: 40px;
+        }
+        .section {
+            min-height: 50px !important;
+            background-color: #79c1ff;
+            padding: 0 !important;
+            border-style: solid;
+            border-width: 2px;
+            border-color: #778899;
+        }
+        .name-section {
+            text-align: center;
+            height: 30px;
+            margin-top: 10px;
+            color: white;
+        }
+        .modules {
+            color: white;
+            background-color: black;
+            padding-left: 5px;
+        }
+        .displayNo {
+            display: none;
+        }
+        #modules {
+            text-align: center;
+            color: white;
+            background: rgb(119,136,153);
+            background: linear-gradient(0deg, rgba(119,136,153,1) 0%, rgba(0,0,0,1) 100%);
+            margin: 0;
+            padding-top: 20px;
+            padding-bottom: 10px;
         }
 
     </style>
@@ -77,7 +110,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Modules</a>
+                        <a class="nav-link" href="#modules">Modules</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Who</a>
@@ -97,40 +130,150 @@
     </div>
 
 
-    <!--
-    <style>
-        .section {
-          min-height: 50px !important;
+    <div>
+        <h2 id="modules">Modules</h2>
+    </div>
+
+    <div class="row" id="output" style="margin-right: 0 !important; margin-left: 0 !important;">
+
+
+    </div>
+
+    <script>
+        var dictionaryModules = {
+            "Player" : {
+                "autoDisconnect": "automatically disconnects when u reach a set health.",
+                "autoMine": "automatically mines.",
+                "esp's" : "makes entities and storages visible (lots of customization).",
+                "freecam" : "allows u to leave ur body and explore the enviorment with a free camera.",
+                "fullBright" : "fully brightens everything.",
+                "holeEsp" : "draws esp in bedrock and obsidian holes for better cpvp.",
+                "lowOffHand" : "allows u to chose the visual height of ur offhand.",
+                "noRender" : "stops certain events from rendering.",
+                "peek" : "allows u to see whats in a shulker by hovering ur mouse over it.",
+                "tracers" : "draws a line to certain entities.",
+                "viewModel" : "allows u to change how items render in ur hand."
+            },
+            "Pvp" : {
+                "autoArmor" : "automatically equips the best armor in ur inventory.",
+                "autoClicker" : "clicks really fast wen held.",
+                "autoCrystal" : "automatically crystals your opponent.",
+                "autoGap" : "automatically eats any gapples in ur hands.",
+                "blink" : "temporarily creates a second player to throw off opponents.",
+                "criticals" : "always land critical hits without having to jump.",
+                "fastUse" : "allows u to use things faster like shoot bows and throw xp bottles.",
+                "footExp" : "automatically throws xp bottles at your feet.",
+                "holeTp" : "automatically sucks u into a bedrock or obsidian hole.",
+                "killAura" : "automatically hits certain entities.",
+                "smartOffHand" : "allows u to use crystals and gaps smartly without a totem in ur hand 24/7.",
+                "surround" : "autmatically surrounds u in obsidian."
+            },
+            "Exploits" : {
+                "antiHunger" : "reduces the amount of hunger you loose.",
+                "antiSwing" : "prevents swinging server side.",
+                "portalGodMode" : "gives you god mode in portals.",
+                "timer" : "allows you to edit your player's timer."
+            },
+            "Movements" : {
+                "autoWalk" : "autmatically holds w key for u to walk.",
+                "inventoryMove" : "allows you to move while in a gui screen.",
+                "jesus" : "lets u walk on water like jesus himself.",
+                "noSlow" : "prevents certain events from slowing you down, e.g. eating, soulsand, webs, and slimeblocks.",
+                "reverseStep" : "automatically sucks u down when stepping down a block.",
+                "safeWalk" : "prevents u from falling off the edges of blocks.",
+                "speed" : "allows you to outrun his bullet.",
+                "sprint" : "automatically sprints when holding your foward key.",
+                "step" : "tp's you to the top of a block so you don't have to jump."
+            },
+            "Hud" : {
+                "watermark" : "shows the client name and version.",
+                "totems's" : "shows you how many totems you currently have on your player.",
+                "ping" : "shows your current ping.",
+                "frames" : "shows the current frame rate of your game.",
+                "autoCrystalInfo" : "tells you if your auto crystal is off or on.",
+                "killAuraInfo" : "tells you if your kill aura is off or on.",
+                "surroundInfo" : "tells you if your surround is off or on.",
+                "arraylist" : "shows you all current enabled modules.",
+                "inventoryViewer" : "gives you a hud of your inventory.",
+                "playerModel" : "shows ur player on the hud.",
+                "coords" : "shows you your current coordinates in game.",
+                "armorHud" : "gives you a display of your armor along with the durability of each armor piece.",
+                "hudEditor" : "allows you to edit the hud of the client."
+            },
+            "Client" : {
+                "clientFont" : "allows u to change the font of the client.",
+                "capes" : "allows u to see your own, and other peoples postman capes (u can get a cape if u have ++).",
+                "discordRp" : "shows you are playing postman on discord.",
+                "clickGui" : "gives you multiple setting to customize the clickGui to your liking.",
+                "tabGui" : "allows you to navigate the client through your arrow keys.",
+                "mainMenuInfo" : "shows postman info on the main menu of Minecraft."
+            }
+
         }
-    </style>
+        var output = '';
 
-    <div class="row" style="margin-right: 0 !important;">
-        <div class="col-md-3 section" style="background-color:green;">
+        for(var section in dictionaryModules) {
+            output += '<div class="col-lg-2 col-md-4 col-sm-6 col-12 section">';
+            output += '<div class="name-section">' + section + ' </div>';
+            output += '<div class="modules displayNo">';
+            for(var module in dictionaryModules[section]) {
+                output += '<div class="module">' + module + ' </div>';
+            }
+            output += '</div></div>';
+        }
 
-        </div>
-        <div class="col-md-3 section" style="background-color:black">
+        $('#output').html(output);
 
-        </div>
-        <div class="col-md-3 section" style="background-color:#ff0000">
 
-        </div>
-        <div class="col-md-3 section" style="background-color:#e400ff">
 
-        </div>
-        <div class="col-md-3 section" style="background-color:#ff7900">
+    </script>
 
-        </div>
-        <div class="col-md-3 section" style="background-color:#30ff00">
 
-        </div>
-        <div class="col-md-3 section" style="background-color:#ac00ff">
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 id="module_name"></h4>
+                </div>
+                <div class="modal-body" id="module_description">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
 
         </div>
     </div>
-    -->
+
+
+    <script type="text/javascript">
+
+        $(".name-section").click(function(event) {
+            var clickedDiv = $(this);
+            var thisDiv = clickedDiv.parent()[0].children[1];
+            if (thisDiv.classList.contains("displayNo")) {
+                thisDiv.classList.remove("displayNo");
+            }else thisDiv.classList.add("displayNo");
+        });
+        var t;
+        $(".module").click(function (event) {
+            var clickedDiv = $(this);
+            var nameModule = clickedDiv.text().trim();
+            var nameSection = clickedDiv.parent().parent().text().split(" ")[0];
+            t = nameSection + " " + nameModule;
+            $("#module_name").html(nameModule);
+            $("#module_description").html(dictionaryModules[nameSection][nameModule]);
+            $('#myModal').modal("show");
+        });
+    </script>
+
 
     <!-- BootStrap things again -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
