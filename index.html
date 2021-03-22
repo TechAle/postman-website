@@ -96,16 +96,16 @@
             padding-top: 0 !important;
         }
 
+        .title > * {
+            text-align: center;
+        }
+
         .title {
             color: white;
             padding-top: 100px;
         }
         .title > h2 {
-            text-align: center;
             padding-top: 20px;
-        }
-        .title > div {
-            margin-left: 10px;
         }
 
         #chooseVersion {
@@ -160,6 +160,10 @@
 
     </style>
     <!-- datasets -->
+    <!-- Since i cannot use any backend (we have to use github pages because they are free,
+         For creating something that i can read like i file, i have to create a file .js that contains every
+         variables we need.
+     -->
     <script src="./datasets/playerDev.js"></script>
     <script src="./datasets/modules.js"></script>
     <script src="./datasets/versions.js"></script>
@@ -167,7 +171,7 @@
 </head>
 <body>
 
-    <!-- Navigation -->
+    <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top" id="nav">
         <div class="container" id="top">
             <a class="navbar-brand" id="logo" href="#">
@@ -200,13 +204,12 @@
         </div>
     </nav>
 
-
-
+    <!-- Big img as back + title -->
     <div id="img">
         <div class="centred">PostMan<div id="subText">Minecraft Utility Client</div></div>
     </div>
 
-
+    <!-- Modules -->
     <div class="title" id="modules">
         <h2>Modules</h2>
         <div>
@@ -214,16 +217,22 @@
         </div>
     </div>
 
+    <!--
+        Here there will be the gui
+     -->
     <div class="row" id="output" style="margin-right: 0 !important; margin-left: 0 !important;">
 
 
     </div>
 
+    <!--
+        This add every modules to the div above
+    -->
     <script>
         var output = '';
 
         for(var section in dictionaryModules) {
-            output += '<div class="col-lg-2 col-md-4 col-sm-6 col-12 section" style="height: 60px">';
+            output += '<div class="col-lg-2 col-md-4 col-sm-12 section" style="height: 60px">';
             output += '<div class="name-section">' + section + ' </div>';
             output += '<div class="modules displayNo">';
             for(var module in dictionaryModules[section]) {
@@ -240,18 +249,21 @@
 
 
 
-    <!-- Modal -->
+    <!-- This is the custom alert  -->
     <div class="modal fade" id="myModal" role="dialog">
+        <!-- The entire alert -->
         <div class="modal-dialog">
-
-            <!-- Modal content-->
+            <!-- The content -->
             <div class="modal-content">
                 <div class="modal-header">
+                    <!-- The title of the alert -->
                     <h4 id="module_name"></h4>
                 </div>
+                <!-- The body of the alert -->
                 <div class="modal-body" id="module_description">
 
                 </div>
+                <!-- Close button of the alert -->
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
@@ -260,32 +272,42 @@
         </div>
     </div>
 
-
+    <!-- Here, we manage the gui -->
     <script type="text/javascript">
 
+        // When a section is clicked
         $(".name-section").click(function(event) {
             var clickedDiv = $(this);
             var parent = clickedDiv.parent()[0];
             var thisDiv = parent.children[1];
+            // If it's not open
             if (thisDiv.classList.contains("displayNo")) {
+                // Open it
                 thisDiv.classList.remove("displayNo");
+                // Let it expands (without this, we will have a whole blue things everywhere
                 parent.style.height = "";
             }else {
+                // Retract it
                 thisDiv.classList.add("displayNo");
+                // Let it expands (without this, we will have a whole blue things everywhere
                 parent.style.height = "60px";
             }
         });
+        // When we click a module
         $(".module").click(function (event) {
             var clickedDiv = $(this);
+            // Get the module name
             var nameModule = clickedDiv.text().trim();
+            // Get the section
             var nameSection = clickedDiv.parent().parent().text().split(" ")[0];
+            // Display it
             $("#module_name").html(nameModule);
             $("#module_description").html(dictionaryModules[nameSection][nameModule]);
             $('#myModal').modal("show");
         });
     </script>
 
-    <!-- https://github.com/moomooooo/postman/releases/download/1.200/postman1.200.jar -->
+    <!-- Download -->
     <div class="title" id="Download">
         <h2>Download</h2>
         <div>
@@ -293,73 +315,91 @@
         </div>
     </div>
 
+    <!-- Form for choosing the version -->
     <div id="chooseVersion" class="container">
         <div class="row">
-            <div class="col-12 col-sm-4">
+            <!-- We want that, when we are on mobile, they are one on top of others,
+                In other cases, no
+              -->
+            <div class="col-sm-12 col-ms-4">
                 <div class="form-group">
+                    <!-- Select version -->
                     <label for="firstVersion">Select the version</label>
                     <select multiple class="form-control" id="firstVersion">
-                        <option>0</option>
-                        <option selected>1</option>
+
                     </select>
                 </div>
             </div>
-            <div class="col-12 col-sm-4">
+            <div class="col-sm-12 col-ms-4">
                 <div class="form-group">
+                    <!-- Select sub-version -->
                     <label for="secondVersion">Select the sub version</label>
                     <select multiple class="form-control" id="secondVersion">
-                        <option>0</option>
-                        <option>1</option>
-                        <option selected>2</option>
+
                     </select>
                 </div>
             </div>
-            <div class="col-12 col-sm-4">
+            <div class="col-sm-12 col-ms-4">
+                <!-- Download it -->
                 <button type="submit" value="Download!" id="downloadBut" onclick="startDownload()">Download</button>
             </div>
         </div>
     </div>
 
-
+    <!-- Set version -->
     <script type="text/javascript">
         var output = "";
         var plus = "selected";
+        // We have to iterate the reverse because, we want the latest on top
         for(var i = Object.keys(postmanVer).length - 1; i > -1; i--) {
             output += "<option "+plus+">" + Object.keys(postmanVer)[i] + "</option>";
             plus = "";
         }
+        // Add it to html
         $("#firstVersion").html(output);
     </script>
 
+    <!-- Update Subversion + Download -->
     <script>
         var t;
+        // Function for updating
         function updateSubVersion() {
+            // Get version
             var version = $("#firstVersion")[0].value;
             var output = "";
             var plus = "selected";
             t = version;
+            // Iterate for every values and add it
             postmanVer[version].forEach((value) => {
                 output += "<option "+plus+">" + value + "</option>";
                 plus = "";
             })
             $("#secondVersion").html(output);
         }
+        // Update it
         updateSubVersion();
+        // Add listener on version change value
         $("#firstVersion").change(() => {
             updateSubVersion();
         })
 
+        // Function for starting download
         function startDownload() {
+            // Get the version
             var version = $("#firstVersion")[0].value + "." + $("#secondVersion")[0].value;
+            // Get the link
             var link = "https://github.com/moomooooo/postman/releases/download/"+version+"/postman"+version+".jar";
+            // Display
             $("#module_name").html("Thank you for downloading PostMan " + version);
             $("#module_description").html("Now the download will be started, please wait...<br>" +
                                             "If it doesnt start, <a href='"+link+"'>click this link</a>");
-            window.open(link);
             $('#myModal').modal("show");
+            // Open the page
+            window.open(link);
         }
     </script>
 
+    <!-- Socials -->
     <div class="title" id="socials">
         <h2>Socials</h2>
         <div>
@@ -368,6 +408,7 @@
     </div>
     <div class="container" id="socialsBack">
         <div class="row">
+            <!-- Since every pictures are relative big, we have have on a mobile 2 pictures for row -->
             <div class="col-12 col-sm-6 col-ms-3 imgPict">
                 <img src="./symbols/discord.png" alt="discord png" onclick="window.open('https://discord.gg/RvXHwesD8g')">
             </div>
@@ -382,7 +423,7 @@
     </div>
 
 
-
+    <!-- Who created -->
     <div class="title" id="who">
         <h2>Who</h2>
         <div>
@@ -390,13 +431,16 @@
         </div>
     </div>
 
+    <!-- Where we will put everything -->
     <div class="container" id="whoCont">
 
     </div>
     <script>
         output = "";
         for(var playerOne in playerDev) {
+            // Remove the number
             var player = playerOne.substring(3, playerOne.length)
+            // Output
             output += "<div class=\"row\">\n" +
                 "            <div class=\"col-12 col-sm-6\">\n" +
                 "                <video autoplay loop muted inline>\n" +
