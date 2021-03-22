@@ -144,6 +144,20 @@
             margin-top: 50px;
         }
 
+        #socialsBack {
+            background-color: white;
+            border-style: solid;
+            border-width: 2px;
+        }
+
+        .imgPict {
+            text-align: center;
+            padding-top: 30px;
+        }
+        .imgPict > img {
+            height: 100px;
+        }
+
     </style>
     <!-- datasets -->
     <script src="./datasets/playerDev.js"></script>
@@ -171,6 +185,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#modules">Modules</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#socials">Socials</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#Download">Download</a>
@@ -342,6 +359,29 @@
             $('#myModal').modal("show");
         }
     </script>
+
+    <div class="title" id="socials">
+        <h2>Socials</h2>
+        <div>
+            Postman's socials
+        </div>
+    </div>
+    <div class="container" id="socialsBack">
+        <div class="row">
+            <div class="col-12 col-sm-6 col-ms-3 imgPict">
+                <img src="./symbols/discord.png" alt="discord png" onclick="window.open('https://discord.gg/RvXHwesD8g')">
+            </div>
+            <div class="col-12 col-sm-6 col-ms-3 imgPict">
+                <img src="./symbols/github.png" alt="github png" onclick="window.open('https://github.com/moomooooo/postman')">
+            </div>
+            <div class="col-12 col-sm-6 col-ms-3 imgPict">
+            </div>
+            <div class="col-12 col-sm-6 col-ms-3 imgPict">
+            </div>
+        </div>
+    </div>
+
+
 
     <div class="title" id="who">
         <h2>Who</h2>
