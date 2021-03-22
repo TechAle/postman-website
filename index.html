@@ -1,6 +1,7 @@
 <!--
     Base thanks to bootstrap (https://startbootstrap.com/snippets/navbar-logo)
  -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +20,7 @@
             padding: 0 !important;
             scroll-behavior: smooth;
             background-color: lightslategrey;
+
         }
         #top {
             margin-left: 0 !important;
@@ -41,7 +43,7 @@
         }
         #img {
             width: 100%;
-            background-image: url("./img/autocrystal-obf.gif");
+            background-image: url("background/autocrystal-obf.gif");
             height: 580px;
             background-repeat: no-repeat;
             background-size: cover;
@@ -84,11 +86,8 @@
             display: none;
         }
         #modules {
-            text-align: center;
-            color: white;
             background: rgb(119,136,153);
             background: linear-gradient(0deg, rgba(119,136,153,1) 0%, rgb(12, 10, 20) 100% );
-            margin: 0;
             padding-top: 100px;
             padding-bottom: 10px;
         }
@@ -97,26 +96,20 @@
             padding-top: 0 !important;
         }
 
-        #Download {
+        .title {
             color: white;
-            margin-top: 100px;
+            padding-top: 100px;
         }
-        #Download > h2 {
+        .title > h2 {
             text-align: center;
             padding-top: 20px;
         }
-        #Download > div {
-            margin-left: 10px;
-        }
-
-        #subModules {
-            color: white;
+        .title > div {
             margin-left: 10px;
         }
 
         #chooseVersion {
             background-color: white;
-            height: 200px;
             margin-top: 15px;
             margin-bottom: 15px;
         }
@@ -134,7 +127,29 @@
             transform: translate(-50%, -50%);
         }
 
+        #whoCont {
+            background-color: white;
+            border-style: solid;
+            border-width: 1px;
+            margin-top: 20px;
+        }
+        #whoCont > .row {
+            border-style: solid;
+            border-width: 1px;
+            padding-bottom: 10px;
+            padding-top: 10px;
+        }
+
+        footer {
+            margin-top: 50px;
+        }
+
     </style>
+    <!-- datasets -->
+    <script src="./datasets/playerDev.js"></script>
+    <script src="./datasets/modules.js"></script>
+    <script src="./datasets/versions.js"></script>
+
 </head>
 <body>
 
@@ -142,7 +157,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top" id="nav">
         <div class="container" id="top">
             <a class="navbar-brand" id="logo" href="#">
-                <img src="./img/postmanLogo.png" alt="PostMan logo" width="75px" height="75px">
+                <img src="logo/postmanLogo.png" alt="PostMan logo" width="75px" height="75px">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -175,9 +190,11 @@
     </div>
 
 
-    <div>
-        <h2 id="modules">Modules</h2>
-        <div id="subModules">Use this like a gui for gaining every informations you want about our modules</div>
+    <div class="title" id="modules">
+        <h2>Modules</h2>
+        <div>
+            Use this like a gui for gaining every informations you want about our modules
+        </div>
     </div>
 
     <div class="row" id="output" style="margin-right: 0 !important; margin-left: 0 !important;">
@@ -186,76 +203,6 @@
     </div>
 
     <script>
-        var dictionaryModules = {
-            "Player" : {
-                "autoDisconnect": "automatically disconnects when u reach a set health.",
-                "autoMine": "automatically mines.",
-                "esp's" : "makes entities and storages visible (lots of customization).",
-                "freecam" : "allows u to leave ur body and explore the enviorment with a free camera.",
-                "fullBright" : "fully brightens everything.",
-                "holeEsp" : "draws esp in bedrock and obsidian holes for better cpvp.",
-                "lowOffHand" : "allows u to chose the visual height of ur offhand.",
-                "noRender" : "stops certain events from rendering.",
-                "peek" : "allows u to see whats in a shulker by hovering ur mouse over it.",
-                "tracers" : "draws a line to certain entities.",
-                "viewModel" : "allows u to change how items render in ur hand."
-            },
-            "Pvp" : {
-                "autoArmor" : "automatically equips the best armor in ur inventory.",
-                "autoClicker" : "clicks really fast wen held.",
-                "autoCrystal" : "automatically crystals your opponent.",
-                "autoGap" : "automatically eats any gapples in ur hands.",
-                "blink" : "temporarily creates a second player to throw off opponents.",
-                "criticals" : "always land critical hits without having to jump.",
-                "fastUse" : "allows u to use things faster like shoot bows and throw xp bottles.",
-                "footExp" : "automatically throws xp bottles at your feet.",
-                "holeTp" : "automatically sucks u into a bedrock or obsidian hole.",
-                "killAura" : "automatically hits certain entities.",
-                "smartOffHand" : "allows u to use crystals and gaps smartly without a totem in ur hand 24/7.",
-                "surround" : "autmatically surrounds u in obsidian."
-            },
-            "Exploits" : {
-                "antiHunger" : "reduces the amount of hunger you loose.",
-                "antiSwing" : "prevents swinging server side.",
-                "portalGodMode" : "gives you god mode in portals.",
-                "timer" : "allows you to edit your player's timer."
-            },
-            "Movements" : {
-                "autoWalk" : "autmatically holds w key for u to walk.",
-                "inventoryMove" : "allows you to move while in a gui screen.",
-                "jesus" : "lets u walk on water like jesus himself.",
-                "noSlow" : "prevents certain events from slowing you down, e.g. eating, soulsand, webs, and slimeblocks.",
-                "reverseStep" : "automatically sucks u down when stepping down a block.",
-                "safeWalk" : "prevents u from falling off the edges of blocks.",
-                "speed" : "allows you to outrun his bullet.",
-                "sprint" : "automatically sprints when holding your foward key.",
-                "step" : "tp's you to the top of a block so you don't have to jump."
-            },
-            "Hud" : {
-                "watermark" : "shows the client name and version.",
-                "totems's" : "shows you how many totems you currently have on your player.",
-                "ping" : "shows your current ping.",
-                "frames" : "shows the current frame rate of your game.",
-                "autoCrystalInfo" : "tells you if your auto crystal is off or on.",
-                "killAuraInfo" : "tells you if your kill aura is off or on.",
-                "surroundInfo" : "tells you if your surround is off or on.",
-                "arraylist" : "shows you all current enabled modules.",
-                "inventoryViewer" : "gives you a hud of your inventory.",
-                "playerModel" : "shows ur player on the hud.",
-                "coords" : "shows you your current coordinates in game.",
-                "armorHud" : "gives you a display of your armor along with the durability of each armor piece.",
-                "hudEditor" : "allows you to edit the hud of the client."
-            },
-            "Client" : {
-                "clientFont" : "allows u to change the font of the client.",
-                "capes" : "allows u to see your own, and other peoples postman capes (u can get a cape if u have ++).",
-                "discordRp" : "shows you are playing postman on discord.",
-                "clickGui" : "gives you multiple setting to customize the clickGui to your liking.",
-                "tabGui" : "allows you to navigate the client through your arrow keys.",
-                "mainMenuInfo" : "shows postman info on the main menu of Minecraft."
-            }
-
-        }
         var output = '';
 
         for(var section in dictionaryModules) {
@@ -322,7 +269,7 @@
     </script>
 
     <!-- https://github.com/moomooooo/postman/releases/download/1.200/postman1.200.jar -->
-    <div id="Download">
+    <div class="title" id="Download">
         <h2>Download</h2>
         <div>
             Click for downloading the utility mod.
@@ -356,32 +303,6 @@
         </div>
     </div>
 
-    <script>
-        var postmanVer = {
-            "1" : [
-                "210",
-                "209",
-                "208",
-                "207",
-                "206",
-                "205",
-                "204",
-                "203",
-                "202",
-                "201",
-                "200",
-                "103",
-                "102",
-                "101",
-                "10",
-                "0"
-            ],
-            "0" : [
-                "121",
-                "120"
-            ]
-        }
-    </script>
 
     <script type="text/javascript">
         var output = "";
@@ -422,7 +343,45 @@
         }
     </script>
 
+    <div class="title" id="who">
+        <h2>Who</h2>
+        <div>
+            Who created this utility client
+        </div>
+    </div>
 
+    <div class="container" id="whoCont">
+
+    </div>
+    <script>
+        output = "";
+        for(var playerOne in playerDev) {
+            var player = playerOne.substring(3, playerOne.length)
+            output += "<div class=\"row\">\n" +
+                "            <div class=\"col-12 col-sm-6\">\n" +
+                "                <video autoplay loop muted inline>\n" +
+                "                    <source src=\"players/"+player+".mp4\" type=\"video/mp4\">\n" +
+                "                    <img src=\"players/"+player+".mp4\" />\n" +
+                "                </video>\n" +
+                "            </div>\n" +
+                "            <div class=\"col-12 col-sm-6\">\n" +
+                "                <h2>"+player+"</h2>\n" +
+                "                <div>"+playerDev[playerOne]+"</div>\n" +
+                "            </div>\n" +
+                "        </div>";
+        }
+        $("#whoCont").html(output);
+    </script>
+
+
+    <footer class="bg-light text-center text-lg-start">
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            Created by TechAle, for more info read the
+            <a class="text-dark" href="https://github.com/TechAle/postman-website/">readme.md</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
 
 </body>
 </html>
