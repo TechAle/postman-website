@@ -9,12 +9,16 @@
     <!-- BootStrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- BootStrap things again -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <!-- Styles -->
     <style>
         html, body {
             margin: 0 !important;
             padding: 0 !important;
             scroll-behavior: smooth;
+            background-color: lightslategrey;
         }
         #top {
             margin-left: 0 !important;
@@ -37,8 +41,8 @@
         }
         #img {
             width: 100%;
-            background-image: url("./img/modules-obf.png");
-            height: 600px;
+            background-image: url("./img/autocrystal-obf.gif");
+            height: 580px;
             background-repeat: no-repeat;
             background-size: cover;
             text-align: center;
@@ -59,16 +63,16 @@
         }
         .section {
             min-height: 50px !important;
-            background-color: #79c1ff;
+            background-color: transparent;
             padding: 0 !important;
             border-style: solid;
             border-width: 2px;
             border-color: #778899;
         }
         .name-section {
+            background-color: #79c1ff;
             text-align: center;
             height: 30px;
-            margin-top: 10px;
             color: white;
         }
         .modules {
@@ -83,10 +87,51 @@
             text-align: center;
             color: white;
             background: rgb(119,136,153);
-            background: linear-gradient(0deg, rgba(119,136,153,1) 0%, rgba(0,0,0,1) 100%);
+            background: linear-gradient(0deg, rgba(119,136,153,1) 0%, rgb(12, 10, 20) 100% );
             margin: 0;
-            padding-top: 20px;
+            padding-top: 100px;
             padding-bottom: 10px;
+        }
+        #nav {
+            padding-bottom: 0 !important;
+            padding-top: 0 !important;
+        }
+
+        #Download {
+            color: white;
+            margin-top: 100px;
+        }
+        #Download > h2 {
+            text-align: center;
+            padding-top: 20px;
+        }
+        #Download > div {
+            margin-left: 10px;
+        }
+
+        #subModules {
+            color: white;
+            margin-left: 10px;
+        }
+
+        #chooseVersion {
+            background-color: white;
+            height: 200px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        #chooseVersion > .row > * {
+            padding-top: 15px;
+            padding-bottom: 15px;
+            text-align: center;
+        }
+
+        #downloadBut {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
         }
 
     </style>
@@ -94,7 +139,7 @@
 <body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top" id="nav">
         <div class="container" id="top">
             <a class="navbar-brand" id="logo" href="#">
                 <img src="./img/postmanLogo.png" alt="PostMan logo" width="75px" height="75px">
@@ -113,10 +158,10 @@
                         <a class="nav-link" href="#modules">Modules</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Who</a>
+                        <a class="nav-link" href="#Download">Download</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Download</a>
+                        <a class="nav-link" href="#who">Who</a>
                     </li>
                 </ul>
             </div>
@@ -132,6 +177,7 @@
 
     <div>
         <h2 id="modules">Modules</h2>
+        <div id="subModules">Use this like a gui for gaining every informations you want about our modules</div>
     </div>
 
     <div class="row" id="output" style="margin-right: 0 !important; margin-left: 0 !important;">
@@ -213,7 +259,7 @@
         var output = '';
 
         for(var section in dictionaryModules) {
-            output += '<div class="col-lg-2 col-md-4 col-sm-6 col-12 section">';
+            output += '<div class="col-lg-2 col-md-4 col-sm-6 col-12 section" style="height: 60px">';
             output += '<div class="name-section">' + section + ' </div>';
             output += '<div class="modules displayNo">';
             for(var module in dictionaryModules[section]) {
@@ -255,27 +301,128 @@
 
         $(".name-section").click(function(event) {
             var clickedDiv = $(this);
-            var thisDiv = clickedDiv.parent()[0].children[1];
+            var parent = clickedDiv.parent()[0];
+            var thisDiv = parent.children[1];
             if (thisDiv.classList.contains("displayNo")) {
                 thisDiv.classList.remove("displayNo");
-            }else thisDiv.classList.add("displayNo");
+                parent.style.height = "";
+            }else {
+                thisDiv.classList.add("displayNo");
+                parent.style.height = "60px";
+            }
         });
-        var t;
         $(".module").click(function (event) {
             var clickedDiv = $(this);
             var nameModule = clickedDiv.text().trim();
             var nameSection = clickedDiv.parent().parent().text().split(" ")[0];
-            t = nameSection + " " + nameModule;
             $("#module_name").html(nameModule);
             $("#module_description").html(dictionaryModules[nameSection][nameModule]);
             $('#myModal').modal("show");
         });
     </script>
 
+    <!-- https://github.com/moomooooo/postman/releases/download/1.200/postman1.200.jar -->
+    <div id="Download">
+        <h2>Download</h2>
+        <div>
+            Click for downloading the utility mod.
+        </div>
+    </div>
 
-    <!-- BootStrap things again -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <div id="chooseVersion" class="container">
+        <div class="row">
+            <div class="col-12 col-sm-4">
+                <div class="form-group">
+                    <label for="firstVersion">Select the version</label>
+                    <select multiple class="form-control" id="firstVersion">
+                        <option>0</option>
+                        <option selected>1</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-12 col-sm-4">
+                <div class="form-group">
+                    <label for="secondVersion">Select the sub version</label>
+                    <select multiple class="form-control" id="secondVersion">
+                        <option>0</option>
+                        <option>1</option>
+                        <option selected>2</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-12 col-sm-4">
+                <button type="submit" value="Download!" id="downloadBut" onclick="startDownload()">Download</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var postmanVer = {
+            "1" : [
+                "210",
+                "209",
+                "208",
+                "207",
+                "206",
+                "205",
+                "204",
+                "203",
+                "202",
+                "201",
+                "200",
+                "103",
+                "102",
+                "101",
+                "10",
+                "0"
+            ],
+            "0" : [
+                "121",
+                "120"
+            ]
+        }
+    </script>
+
+    <script type="text/javascript">
+        var output = "";
+        var plus = "selected";
+        for(var i = Object.keys(postmanVer).length - 1; i > -1; i--) {
+            output += "<option "+plus+">" + Object.keys(postmanVer)[i] + "</option>";
+            plus = "";
+        }
+        $("#firstVersion").html(output);
+    </script>
+
+    <script>
+        var t;
+        function updateSubVersion() {
+            var version = $("#firstVersion")[0].value;
+            var output = "";
+            var plus = "selected";
+            t = version;
+            postmanVer[version].forEach((value) => {
+                output += "<option "+plus+">" + value + "</option>";
+                plus = "";
+            })
+            $("#secondVersion").html(output);
+        }
+        updateSubVersion();
+        $("#firstVersion").change(() => {
+            updateSubVersion();
+        })
+
+        function startDownload() {
+            var version = $("#firstVersion")[0].value + "." + $("#secondVersion")[0].value;
+            var link = "https://github.com/moomooooo/postman/releases/download/"+version+"/postman"+version+".jar";
+            $("#module_name").html("Thank you for downloading PostMan " + version);
+            $("#module_description").html("Now the download will be started, please wait...<br>" +
+                                            "If it doesnt start, <a href='"+link+"'>click this link</a>");
+            window.open(link);
+            $('#myModal').modal("show");
+        }
+    </script>
+
+
 
 </body>
 </html>
