@@ -1,5 +1,5 @@
 var dictionaryModules = {
-    "Player" : {
+    "player" : {
         "autoDisconnect": "automatically disconnects when u reach a set health.",
         "autoMine": "automatically mines.",
         "esp's" : "makes entities and storages visible (lots of customization).",
@@ -12,7 +12,7 @@ var dictionaryModules = {
         "tracers" : "draws a line to certain entities.",
         "viewModel" : "allows u to change how items render in ur hand."
     },
-    "Pvp" : {
+    "pvp" : {
         "autoArmor" : "automatically equips the best armor in ur inventory.",
         "autoClicker" : "clicks really fast wen held.",
         "autoCrystal" : "automatically crystals your opponent.",
@@ -26,13 +26,13 @@ var dictionaryModules = {
         "smartOffHand" : "allows u to use crystals and gaps smartly without a totem in ur hand 24/7.",
         "surround" : "autmatically surrounds u in obsidian."
     },
-    "Exploits" : {
+    "exploits" : {
         "antiHunger" : "reduces the amount of hunger you loose.",
         "antiSwing" : "prevents swinging server side.",
         "portalGodMode" : "gives you god mode in portals.",
         "timer" : "allows you to edit your player's timer."
     },
-    "Movements" : {
+    "movement" : {
         "autoWalk" : "autmatically holds w key for u to walk.",
         "inventoryMove" : "allows you to move while in a gui screen.",
         "jesus" : "lets u walk on water like jesus himself.",
@@ -43,7 +43,7 @@ var dictionaryModules = {
         "sprint" : "automatically sprints when holding your foward key.",
         "step" : "tp's you to the top of a block so you don't have to jump."
     },
-    "Hud" : {
+    "hud" : {
         "watermark" : "shows the client name and version.",
         "totems's" : "shows you how many totems you currently have on your player.",
         "ping" : "shows your current ping.",
@@ -58,7 +58,7 @@ var dictionaryModules = {
         "armorHud" : "gives you a display of your armor along with the durability of each armor piece.",
         "hudEditor" : "allows you to edit the hud of the client."
     },
-    "Client" : {
+    "client" : {
         "clientFont" : "allows u to change the font of the client.",
         "capes" : "allows u to see your own, and other peoples postman capes (u can get a cape if u have ++).",
         "discordRp" : "shows you are playing postman on discord.",
