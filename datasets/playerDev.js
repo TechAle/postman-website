@@ -1,5 +1,5 @@
 var playerDev = {
-    "000srgantmoomoo" : "Owner, he created and he is developing the client",
-    "001nocatsnolife" : "Developer, he created the website and contributed to postman",
-    "002lukflug" : "Developer, creator of panelstudio, the library that postman uses for displaying things"
+    "000srgantmoomoo" : "Owner, began and developed postman.",
+    "001nocatsnolife" : "Developer, created postman website and contributed to the client.",
+    "002lukflug" : "Developer, created panselstudio, the gui library used by postman, and helped implement it into the client."
 }

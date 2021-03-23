@@ -6,7 +6,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Postman</title>
+    <title>postman</title>
+    <link rel="icon" href="logo/postmanLogo.png" type="image/png"> 
     <!-- BootStrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -148,6 +149,7 @@
             background-color: white;
             border-style: solid;
             border-width: 2px;
+            margin-top: 20px;
         }
 
         .imgPict {
@@ -183,21 +185,21 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home
+                        <a class="nav-link" href="#">home
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#modules">Modules</a>
+                        <a class="nav-link" href="#modules">modules</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#socials">Socials</a>
+                        <a class="nav-link" href="#Download">download</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#Download">Download</a>
+                        <a class="nav-link" href="#socials">socials</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#who">Who</a>
+                        <a class="nav-link" href="#who">who</a>
                     </li>
                 </ul>
             </div>
@@ -206,14 +208,14 @@
 
     <!-- Big img as back + title -->
     <div id="img">
-        <div class="centred">PostMan<div id="subText">Minecraft Utility Client</div></div>
+        <div class="centred">postman<div id="subText">minecraft 1.12.2 anarchy client</div></div>
     </div>
 
     <!-- Modules -->
     <div class="title" id="modules">
-        <h2>Modules</h2>
+        <h2>modules</h2>
         <div>
-            Use this like a gui for gaining every informations you want about our modules
+            postman gui for information on every postman module
         </div>
     </div>
 
@@ -309,9 +311,9 @@
 
     <!-- Download -->
     <div class="title" id="Download">
-        <h2>Download</h2>
+        <h2>download</h2>
         <div>
-            Click for downloading the utility mod.
+            select a version of postman to download
         </div>
     </div>
 
@@ -390,7 +392,7 @@
             // Get the link
             var link = "https://github.com/moomooooo/postman/releases/download/"+version+"/postman"+version+".jar";
             // Display
-            $("#module_name").html("Thank you for downloading PostMan " + version);
+            $("#module_name").html("Thank you for downloading postman " + version);
             $("#module_description").html("Now the download will be started, please wait...<br>" +
                                             "If it doesnt start, <a href='"+link+"'>click this link</a>");
             $('#myModal').modal("show");
@@ -401,9 +403,9 @@
 
     <!-- Socials -->
     <div class="title" id="socials">
-        <h2>Socials</h2>
+        <h2>socials</h2>
         <div>
-            Postman's socials
+            get in contact
         </div>
     </div>
     <div class="container" id="socialsBack">
@@ -425,9 +427,9 @@
 
     <!-- Who created -->
     <div class="title" id="who">
-        <h2>Who</h2>
+        <h2>who</h2>
         <div>
-            Who created this utility client
+            developers of postman
         </div>
     </div>
 
