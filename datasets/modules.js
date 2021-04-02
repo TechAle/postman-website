@@ -1,7 +1,27 @@
 var dictionaryModules = {
     "player" : {
-        "autoDisconnect": "automatically disconnects when u reach a set health.",
+        "autoDisconnect": "automatically disconnects at desired health.",
         "autoMine": "automatically mines.",
+        "autoReconnect" : "automatically reconnects to a server.",
+        "autoRespawn" : "automatically respawns after death occurs.",
+        "autoTotem" : "automatically places totem in ur offhand.",
+        "autoUse" : "automatically uses whatever u r holding.",
+        "chatSuffix" : "adds postman suffix to all of ur chat msg's.",
+        "chestStealer" : "automatically steals from inventory gui's.",
+        "deathCoords" : "tells u ur coords after death occurs :O.",
+        "inventoryPlus" : "lets u hold extra items in ur crafting gui.",
+        "liquidPlace" : "lets u place blocks on liquid.",
+        "mcf" : "middle click a player to friend them.",
+        "multitask" : "allows you to do different things in each hand.",
+        "noFall" : "yea no... fall.",
+        "noPush" : "u cant get pushed, and u cant push.",
+        "playerClone" : "cloneeee.",
+        "protester" : "protests about postmans greatness.",
+        "velocity" : "take no knockback when hit."
+    },
+    "render" : {
+        "cameraClip": "camera clips when in 3rd person.",
+        "damageTilt": "fixes minecraft's age old damage tilt bug.",
         "esp's" : "makes entities and storages visible (lots of customization).",
         "freecam" : "allows u to leave ur body and explore the enviorment with a free camera.",
         "fullBright" : "fully brightens everything.",
@@ -10,7 +30,8 @@ var dictionaryModules = {
         "noRender" : "stops certain events from rendering.",
         "peek" : "allows u to see whats in a shulker by hovering ur mouse over it.",
         "tracers" : "draws a line to certain entities.",
-        "viewModel" : "allows u to change how items render in ur hand."
+        "viewModel" : "allows u to change how items render in ur hand.",
+        "world" : "allows you to customize differnt world weather/time events."
     },
     "pvp" : {
         "autoArmor" : "automatically equips the best armor in ur inventory.",
@@ -29,6 +50,8 @@ var dictionaryModules = {
     "exploits" : {
         "antiHunger" : "reduces the amount of hunger you loose.",
         "antiSwing" : "prevents swinging server side.",
+        "noHandShake" : "prevents communication between the server and client.",
+        "packetCancellor" : "allows you to cancel certain packets.",
         "portalGodMode" : "gives you god mode in portals.",
         "timer" : "allows you to edit your player's timer."
     },
@@ -61,10 +84,15 @@ var dictionaryModules = {
     "client" : {
         "clientFont" : "allows u to change the font of the client.",
         "capes" : "allows u to see your own, and other peoples postman capes (u can get a cape if u have ++).",
-        "discordRp" : "shows you are playing postman on discord.",
+        "discordRpc" : "shows you are playing postman on discord.",
         "clickGui" : "gives you multiple setting to customize the clickGui to your liking.",
         "tabGui" : "allows you to navigate the client through your arrow keys.",
-        "mainMenuInfo" : "shows postman info on the main menu of Minecraft."
+        "mainMenuInfo" : "shows postman info on the main menu of Minecraft.",
+        "postmanAppreciation" : "links u to different postman socials :)"
+    },
+    "bot" : {
+        "(wip) InventoryBot" : "a bot that better manages ur inventory/hotbar.",
+        "(wip) offHandBot" : "a bot that better manages ur off hand for crystal pvp."
     }
 
 }
