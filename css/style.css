@@ -56,9 +56,9 @@ html, body {
 }
 .name-section {
     background-color: #79c1ff;
-    text-align: center;
     height: 30px;
     color: white;
+    padding-left: 5px;
 }
 .modules {
     color: white;
@@ -99,14 +99,14 @@ html, body {
 
 #chooseVersion > .row > * {
     padding-top: 15px;
-    padding-bottom: 15px;
+    padding-bottom: 5px;
     text-align: center;
 }
 
 #downloadBut {
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 0%;
     transform: translate(-50%, -50%);
 }
 
