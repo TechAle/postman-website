@@ -16,13 +16,14 @@ html, body {
     background-color: #79c1ff !important;
 }
 @keyframes rainbow {
+    0% { color: #ffffff; }
     14% { color: #ff00c9; }
     28% { color: #bf00ff; }
-    42% { color: #366c9b; }
-    56% { color: #248648; }
-    70% { color: #c68230; }
+    42% { color: #0088ff; }
+    56% { color: #00ff5e; }
+    70% { color: #ffbb00; }
     84% { color: #ff0000; }
-    100% { color: #838383; }
+    100% { color: #ffffff; }
 }
 #img {
     width: 100%;
@@ -31,7 +32,7 @@ html, body {
     background-repeat: no-repeat;
     background-size: cover;
     text-align: center;
-    color: white;
+    color: lightslategrey;
     animation: rainbow 10s infinite;
     animation-direction: alternate;
 
@@ -52,7 +53,7 @@ html, body {
     padding: 0 !important;
     border-style: solid;
     border-width: 2px;
-    border-color: #778899;
+    border-color: lightslategrey;
 }
 .name-section {
     background-color: #79c1ff;
@@ -69,8 +70,8 @@ html, body {
     display: none;
 }
 #modules {
-    background: rgb(119,136,153);
-    background: linear-gradient(0deg, rgba(119,136,153,1) 0%, rgb(12, 10, 20) 100% );
+    background: rgb(255, 255, 255);
+    background: linear-gradient(0deg,lightslategrey 0%, rgb(12, 10, 20) 100% );
     padding-top: 100px;
     padding-bottom: 10px;
 }
@@ -84,7 +85,7 @@ html, body {
 }
 
 .title {
-    color: white;
+    color: rgb(255, 255, 255);
     padding-top: 100px;
 }
 .title > h2 {

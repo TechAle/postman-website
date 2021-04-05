@@ -36,6 +36,7 @@ var dictionaryModules = {
     "pvp" : {
         "autoArmor" : "automatically equips the best armor in ur inventory.",
         "autoClicker" : "clicks really fast wen held.",
+        "autoCope" : "automatically makes ur opponent cope.",
         "autoCrystal" : "automatically crystals your opponent.",
         "autoGap" : "automatically eats any gapples in ur hands.",
         "blink" : "temporarily creates a second player to throw off opponents.",
