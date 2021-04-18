@@ -27,6 +27,7 @@ var dictionaryModules = {
         "fullBright" : "fully brightens everything.",
         "holeEsp" : "draws esp in bedrock and obsidian holes for better cpvp.",
         "lowOffHand" : "allows u to chose the visual height of ur offhand.",
+        "nametags" : "gives more info on a persons nametag.",
         "noRender" : "stops certain events from rendering.",
         "peek" : "allows u to see whats in a shulker by hovering ur mouse over it.",
         "tracers" : "draws a line to certain entities.",
@@ -45,6 +46,7 @@ var dictionaryModules = {
         "footExp" : "automatically throws xp bottles at your feet.",
         "holeTp" : "automatically sucks u into a bedrock or obsidian hole.",
         "killAura" : "automatically hits certain entities.",
+        "refill" : "automatically refills stacks in your hotbar and off hand.",
         "smartOffHand" : "allows u to use crystals and gaps smartly without a totem in ur hand 24/7.",
         "surround" : "autmatically surrounds u in obsidian."
     },
@@ -58,7 +60,8 @@ var dictionaryModules = {
     },
     "movement" : {
         "autoWalk" : "autmatically holds w key for u to walk.",
-        "inventoryMove" : "allows you to move while in a gui screen.",
+        "fly" : "it's a bird, it's a plane!",
+        "guiMove" : "allows you to move while in a gui screen.",
         "jesus" : "lets u walk on water like jesus himself.",
         "noSlow" : "prevents certain events from slowing you down, e.g. eating, soulsand, webs, and slimeblocks.",
         "reverseStep" : "automatically sucks u down when stepping down a block.",
@@ -69,7 +72,10 @@ var dictionaryModules = {
     },
     "hud" : {
         "watermark" : "shows the client name and version.",
-        "totems's" : "shows you how many totems you currently have on your player.",
+        "welcomer" : "welcomes you to postman",
+        "totems" : "shows you how many totems you currently have on your player.",
+        "gapples" : "shows how many gapples you have in your inventory.",
+        "crystals" : "shows how many crystals you have in your inventory.",
         "ping" : "shows your current ping.",
         "frames" : "shows the current frame rate of your game.",
         "autoCrystalInfo" : "tells you if your auto crystal is off or on.",
@@ -87,12 +93,12 @@ var dictionaryModules = {
         "capes" : "allows u to see your own, and other peoples postman capes (u can get a cape if u have ++).",
         "discordRpc" : "shows you are playing postman on discord.",
         "clickGui" : "gives you multiple setting to customize the clickGui to your liking.",
-        "tabGui" : "allows you to navigate the client through your arrow keys.",
         "mainMenuInfo" : "shows postman info on the main menu of Minecraft.",
-        "postmanAppreciation" : "links u to different postman socials :)"
+        "giveMeClout" : "links u to different postman socials :)"
     },
     "bot" : {
-        "(wip) InventoryBot" : "a bot that better manages ur inventory/hotbar.",
+        "baritone" : "settings for the baritone ai.",
+        "configCrystal" : "configs based on server and ping.",
         "(wip) offHandBot" : "a bot that better manages ur off hand for crystal pvp."
     }
 
