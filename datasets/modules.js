@@ -47,6 +47,7 @@ var dictionaryModules = {
         "holeTp" : "automatically sucks u into a bedrock or obsidian hole.",
         "killAura" : "automatically hits certain entities.",
         "refill" : "automatically refills stacks in your hotbar and off hand.",
+        "selfFill" : "fill the whole u r standing in with obby",
         "smartOffHand" : "allows u to use crystals and gaps smartly without a totem in ur hand 24/7.",
         "surround" : "autmatically surrounds u in obsidian."
     },
@@ -86,8 +87,10 @@ var dictionaryModules = {
         "playerModel" : "shows ur player on the hud.",
         "coords" : "shows you your current coordinates in game.",
         "armorHud" : "gives you a display of your armor along with the durability of each armor piece.",
-        "hudEditor" : "allows you to edit the hud of the client."
-    },
+        "hudEditor" : "allows you to edit the hud of the client.",
+        "netherCords" : "shows ur coords in nether on ur hud",
+        "targetHud" : "gives you a hud of your target opponent."
+        },
     "client" : {
         "clientFont" : "allows u to change the font of the client.",
         "capes" : "allows u to see your own, and other peoples postman capes (u can get a cape if u have ++).",
